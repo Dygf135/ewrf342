@@ -18,7 +18,7 @@ jobs:
         run: npm install
 
       - name: Run Puppeteer script
-        run: node your-puppeteer-script.js
+        run: node screenshot.js
 
       - name: Upload screenshot
         uses: actions/upload-artifact@v3
