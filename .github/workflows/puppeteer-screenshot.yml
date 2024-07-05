@@ -1,32 +1,27 @@
-name: Take Screenshot with Puppeteer
+name: Puppeteer Test
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+on: [push]
 
 jobs:
-  screenshot:
+  puppeteer:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Set up Node.js 20
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
       - name: Run Puppeteer script
-        run: npm run screenshot
+        run: node your-puppeteer-script.js
 
       - name: Upload screenshot
         uses: actions/upload-artifact@v3
         with:
-          name: example-screenshot
-          path: example.png
+          name: screenshot
+          path: screenshot.png
